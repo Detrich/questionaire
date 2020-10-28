@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+import Questionnaire from './Questionnaire';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Questionnaire />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+.Background {
+  background-color: #000058;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+.cardBackground{
+  background-color: white;
+  border-radius: 25px;
+  padding:5vh;
+  align-content: center;
+  display:flex;
+  flex-direction: column;
+}
+.buttonFormatting{
+  align-items:center;
+  width: 100%;
+}
+.ansButtons{
+  background-color:white;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 45px;
+  border-radius: 14px;
+  border:solid 1px black;
+  width:40%;
+}
+
+.score{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 12px;
+}
+.WrongAns{  
+  background-color:red;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 45px;
+  border-radius: 14px;
+  border:solid 1px black;
+  width:40%;
+}
+.CorrectAns{
+  background-color:green;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 45px;
+  border-radius: 14px;
+  border:solid 1px black;
+  width:40%;
+}
+.WrongAnswers{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 65px;
+  margin-top: 12px;
+
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  background-color: bisque;
+  border-radius: 25px;
+  border:2px solid red;
+}
+.amountCorrect{
+  font-size:45px;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .cardBackground{
+    margin:12px;
+  }
+  .ansButtons{
+    margin:12px 0 0 0;
+    width: 100%;
+    height: 60px;
+  }
+  .CorrectAns{
+    margin:12px 0 0 0;
+    width: 100%;
+    height: 60px;
+  }
+  .WrongAns{
+    margin:12px 0 0 0;
+    width: 100%;
+    height: 60px;
+  }
+}
+
+
