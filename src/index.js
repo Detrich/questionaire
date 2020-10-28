@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
-import Questionnaire from './Questionnaire';
+import Questionnaire from './Questionnaire/Questionnaire';
+import Home from './Home/Home'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Questionnaire />
+    <Router>
+        <Switch>
+        <Route path="/play" exact>
+            <Questionnaire />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

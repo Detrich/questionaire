@@ -1,4 +1,4 @@
-import data from "./Apprentice_TandemFor400_Data.json";
+import data from "../Apprentice_TandemFor400_Data.json";
 import { useState } from "react";
 import "./Questionnaire.css";
 
@@ -47,6 +47,9 @@ function Questionnaire() {
       setTimeout(function () {
         setQuestion(getRandomQuestion(question.correct));
         setScore(score + 1);
+        if(score>=highscore){
+          setHighscore(highscore + 1)
+        }
       }, 800);
     } else {
       document.getElementById(answer).className = "WrongAns";
@@ -87,8 +90,8 @@ function Questionnaire() {
             ))}
           </div>
           <div className="score">
-            <div>Score: {score}</div>
-            <div> High: {highscore}</div>
+            <div>{score} out of {data.length}</div>
+            <div> High Score: {highscore}</div>
           </div>
           <div className="WrongAnswers">
             <div className="container">

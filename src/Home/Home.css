@@ -1,0 +1,74 @@
+.round-button {
+    display:block;
+    width:80px;
+    height:80px;
+    line-height:80px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    text-align:center;
+    text-decoration:none;
+    background: black;
+    box-shadow: 0 0 8px gray;
+    font-size:20px;
+    font-weight:bold;
+}
+.round-button:hover {
+    background: red;
+}
+.directions{
+    font-size: 17px;
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 45px;
+    margin-top: 25px;
+}
+.card-round{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:white;
+    height: 734px;
+    width:734px;
+    border-radius: 50%;
+    line-height: 40px;
+}
+.top{
+    margin-top: 13%;
+    margin-bottom: 25px;
+    font-size: 40px;
+}
+.welcome{
+    margin:25px;
+    font-size: 25px;
+    text-align: center;
+}
+@media only screen and (max-width: 733px) {
+    .directions{
+        width: 85vw;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 9px;
+        color:white;
+        margin-top: 0px;
+    }
+
+    .top{
+        color:white
+    }
+    .card-round{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #000058;
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0%;
+        line-height: 40px;
+    }
+    .welcome{
+        margin:20px;
+        color:white
+    }
+  }
+  
