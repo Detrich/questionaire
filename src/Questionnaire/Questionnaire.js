@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./Questionnaire.css";
 
 let res = [];
+
 //question,incorrect,correct
 function Questionnaire() {
   const [question, setQuestion] = useState(getRandomQuestion());
@@ -23,33 +24,64 @@ function Questionnaire() {
   function getRandomQuestion(answer) {
     let objectkeys = Object.keys(data);
     let randomKey = objectkeys[Math.floor(Math.random() * objectkeys.length)];
+
     if (!res.includes(answer)) {
+
       //if our res does not have our answer in it, push it in
       res.push(answer);
+      console.log(res)
       // if our res has the answer already in it
       if (res.includes(data[randomKey].correct)) {
         //while loop for when we already had the random key in our list to create a new number to push into the list
         while (res.includes(data[randomKey].correct)) {
+          console.log('question already generated,'+ data[randomKey].correct + ' creating another')
           //redefine randomkey to select another number for us
           randomKey = objectkeys[Math.floor(Math.random() * objectkeys.length)];
         }
-        res.push(data[randomKey].correct);
         return data[randomKey];
       }
     }
     return data[randomKey];
+  }
 
+  function resetGame(){
+    setScore(0);
+    if (score > highscore) {
+      setHighscore(score);
+    }
+    setWrong(0);
+    setWrongAnswers(["•", "•", "•"]);
+    res = [];
   }
   //when we click on one of the answers we search if our answer is correct, if not, it's a wrong answer
   function submit(answer) {
     if (question.correct === answer) {
       document.getElementById(question.correct).className = "CorrectAns";
       setTimeout(function () {
-        setQuestion(getRandomQuestion(question.correct));
-        setScore(score + 1);
         if(score>=highscore){
           setHighscore(highscore + 1)
         }
+        setScore(score + 1);
+        if(score === data.length - 3){
+          if (window.confirm("You win!!!, Would you like to restart?")) {
+            resetGame()
+          } else {
+            window.location.href = "localhost:3000"
+          } 
+          setQuestion(getRandomQuestion());
+          setScore(0);
+          if (score > highscore) {
+            setHighscore(score);
+          }
+          setWrong(0);
+          setWrongAnswers(["•", "•", "•"]);
+          res = [];
+        }else{
+        setQuestion(getRandomQuestion(question.correct))
+        }
+
+
+
       }, 800);
     } else {
       document.getElementById(answer).className = "WrongAns";
@@ -59,16 +91,12 @@ function Questionnaire() {
         setWrong(wrong + 1);
         setWrongAnswers((WrongAnswers) => ["X", ...WrongAnswers.slice(0, -1)]);
         if (wrong === 2) {
-          alert("Try again?");
-          setScore(0);
-          if (score > highscore) {
-            setHighscore(score);
-          }
-          setWrong(0);
-          setWrongAnswers(["•", "•", "•"]);
-          res = [];
-        }
-      }, 800);
+          if (window.confirm("Defeat... Would you like to restart?")) {
+            resetGame()
+          } else {
+            window.location.href = "localhost:3000"
+          } 
+      }}, 800);
     }
   }
   return (
@@ -90,7 +118,7 @@ function Questionnaire() {
             ))}
           </div>
           <div className="score">
-            <div>{score} out of {data.length}</div>
+            <div>{score} out of {data.length - 2}</div>
             <div> High Score: {highscore}</div>
           </div>
           <div className="WrongAnswers">
