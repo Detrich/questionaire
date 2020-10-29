@@ -66,7 +66,7 @@ function Questionnaire() {
           if (window.confirm("You win!!!, Would you like to restart?")) {
             resetGame()
           } else {
-            window.location.href = "localhost:3000"
+
           } 
           setQuestion(getRandomQuestion());
           setScore(0);
@@ -94,10 +94,11 @@ function Questionnaire() {
           if (window.confirm("Defeat... Would you like to restart?")) {
             resetGame()
           } else {
-            window.location.href = "localhost:3000"
+            console.log(window.location.href)}
           } 
       }}, 800);
     }
+
   }
   return (
     <div className="App">
